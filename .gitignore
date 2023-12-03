@@ -23,3 +23,6 @@ go.work
 # Ignore test files
 test.txt
 test?.txt
+
+.idea/
+.DS_Store
