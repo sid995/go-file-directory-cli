@@ -290,13 +290,23 @@ func deleteFile() {
 
 func exitCLI() {
 	var input string
-	fmt.Print("Do you want to exit application? [y/N]: ")
-	fmt.Scanln(&input)
-	if strings.ToLower(input) == "y" {
-		fmt.Println("Exiting CLI file directory system.")
-		os.Exit(1)
-	} else {
-		fmt.Println("\n-------------------------------")
-		displayOptions()
+	for {
+		input = ""
+		fmt.Print("Do you want to exit application? [y/N]: ")
+		fmt.Scanln(&input)
+		input = strings.ToLower(input)
+		if input == "y" || input == "n" {
+			if input == "y" {
+				fmt.Println("Exiting CLI file directory system.")
+				os.Exit(1)
+			} else {
+				fmt.Println("\n-------------------------------")
+				break
+			}
+		} else {
+			fmt.Println("Incorrect Option.")
+			break
+		}
 	}
+	displayOptions()
 }
